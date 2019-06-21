@@ -1,6 +1,6 @@
 var Web3 = require('web3')
 var RLP = require('./node_modules/web3-eth/node_modules/rlp')
-var web3 = new Web3('http://39.104.206.147:8081')
+var web3 = new Web3('http://127.0.0.1:8081')
 
 
 web3.eth.getBlockNumber(function (error, result) {
@@ -10,9 +10,9 @@ web3.eth.getBlockNumber(function (error, result) {
   }
 })
 
-web3.eth.getBalance("0x41ff923c81d7a47f262f9fca7359014cdc19c7f7").then(function(result){
+web3.eth.getBalance("e523e7c59a0725afd08bc9751c89eed6f8e16dec").then(function(result){
 	console.log(" ******************************** 查询地址余额信息 ****************************************")
-	console.log("address 0x41ff923c81d7a47f262f9fca7359014cdc19c7f7 info:", result)
+	console.log("address e523e7c59a0725afd08bc9751c89eed6f8e16dec info:", result)
 })
 
 /*
@@ -26,7 +26,7 @@ web3.eth.getBalance("0x41ff923c81d7a47f262f9fca7359014cdc19c7f7").then(function(
 */
 var pendingData	= {
 	"type":3,														// 类型，3表示挂单
-	"m_from":"0x41ff923c81d7a47f262f9fca7359014cdc19c7f7",			// 挂单地址
+	"m_from":"e523e7c59a0725afd08bc9751c89eed6f8e16dec",			// 挂单地址
 	"m_type":2,      												// 买卖类型(1 : 卖，2 : 买)  	   											
 	"m_token_type":1,												// 买卖类型(1 : 卖，2 : 买)											
 	"m_buy_type":1,													// 价格类型(0 : 市价, 1 : 限价) 
@@ -36,7 +36,7 @@ var pendingData	= {
 
 // 组装需要签名的数据
 var rawTx = {
-	from:'0x41ff923c81d7a47f262f9fca7359014cdc19c7f7',				// 挂单发起地址
+	from:'e523e7c59a0725afd08bc9751c89eed6f8e16dec',				// 挂单发起地址
 	to: '0x00000000000000000000000000000000766f7465',				// 系统默认地址，不能更改
 	value: "0",														// 默认为0
 	data: read_data(pendingData),                                   // pendingData的编码数据	
@@ -63,7 +63,7 @@ function buf2hex(buffer) { // buffer is an ArrayBuffer
 }
 
 // 数据签名，发送交易数据，获取结果
-web3.eth.accounts.signTransaction(rawTx, '0x79ea47d0bf6118c51e8979e8858f20c5f102518a5bcdd92709c443cd09a35028', function(error, result){
+web3.eth.accounts.signTransaction(rawTx, '0x39ae662fd20b510fcd9eeb6297eff65b2833ef59a5b2400dd247eafb6cdde02d', function(error, result){
 	if(!error){
 		console.log(" ******************************** 查询签名信息 *******************************************")
 		console.log("signTransaction: ", result)

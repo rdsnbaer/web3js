@@ -1,5 +1,5 @@
 var Web3 = require('web3')
-var web3 = new Web3('http://39.104.206.147:8081')
+var web3 = new Web3('http://127.0.0.1:8081')
 
 // 合约的ABI
 var abi = [
@@ -72,7 +72,7 @@ var abi = [
 
 // 合约实例化 传入合约abi，及合约地址
 var myContract = new web3.eth.Contract(abi, '0xe4988fE323FE5e91940c7E59D737164387746DFE', {
-    from: '0x41ff923c81d7a47f262f9fca7359014cdc19c7f7', 		// 操作地址
+    from: 'e523e7c59a0725afd08bc9751c89eed6f8e16dec', 		// 操作地址
     gasPrice: '5'												// gas单价						
 	
 });
@@ -83,7 +83,7 @@ console.log("encode:", encode)
 
 // 签名数据组装
 var rawTx = {
-	from:'0x41ff923c81d7a47f262f9fca7359014cdc19c7f7',		// 操作者地址
+	from:'e523e7c59a0725afd08bc9751c89eed6f8e16dec',		// 操作者地址
 	gasPrice: '0x5',										// gas单价
 	gasLimit: '0xa006c85beff',
 	to: '0xe4988fE323FE5e91940c7E59D737164387746DFE', 		// 合约地址
@@ -102,7 +102,7 @@ function sleep(numberMillis) {
 }
 
 // 数据签名，发送交易数据，获取结果
-web3.eth.accounts.signTransaction(rawTx, '0x79ea47d0bf6118c51e8979e8858f20c5f102518a5bcdd92709c443cd09a35028', function(error, result){
+web3.eth.accounts.signTransaction(rawTx, '0x39ae662fd20b510fcd9eeb6297eff65b2833ef59a5b2400dd247eafb6cdde02d', function(error, result){
 	if(!error){
 		console.log(" ******************************** 查询签名信息 *******************************************")
 		console.log("signTransaction: ", result)

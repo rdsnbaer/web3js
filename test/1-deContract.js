@@ -1,5 +1,5 @@
 var Web3 = require('web3')
-var web3 = new Web3('http://39.104.206.147:8081')
+var web3 = new Web3('http://127.0.0.1:8081')
 
 
 web3.eth.getBlockNumber(function (error, result) {
@@ -9,9 +9,9 @@ web3.eth.getBlockNumber(function (error, result) {
   }
 })
 
-web3.eth.getBalance("0x41ff923c81d7a47f262f9fca7359014cdc19c7f7").then(function(result){
+web3.eth.getBalance("e523e7c59a0725afd08bc9751c89eed6f8e16dec").then(function(result){
 	console.log(" ******************************** 查询地址信息 *******************************************")
-	console.log("address 0x41ff923c81d7a47f262f9fca7359014cdc19c7f7 info:", result)
+	console.log("address e523e7c59a0725afd08bc9751c89eed6f8e16dec info:", result)
 })
 
 // 合约二进制文件
@@ -19,7 +19,7 @@ var data1 = '0x60806040526103e860005534801561001657600080fd5b5033600160006101000
 
 // 组装需要签名的数据
 var rawTx = {
-	from:'0x41ff923c81d7a47f262f9fca7359014cdc19c7f7',		// 合约部署者
+	from:'e523e7c59a0725afd08bc9751c89eed6f8e16dec',		// 合约部署者
 	gasPrice: '0x5',										// gas单价
 	gasLimit: '0xa006c85beff',
 	to: null,												// 部署合约时需要填null
@@ -39,7 +39,7 @@ function sleep(numberMillis) {
 }
 
 // 数据签名，发送交易数据，获取结果
-web3.eth.accounts.signTransaction(rawTx, '0x79ea47d0bf6118c51e8979e8858f20c5f102518a5bcdd92709c443cd09a35028', function(error, result){
+web3.eth.accounts.signTransaction(rawTx, '0x39ae662fd20b510fcd9eeb6297eff65b2833ef59a5b2400dd247eafb6cdde02d', function(error, result){
 	if(!error){
 		console.log(" ******************************** 查询签名信息 *******************************************")
 		console.log("signTransaction: ", result)
