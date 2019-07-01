@@ -5,16 +5,11 @@ var web3 = new Web3('http://127.0.0.1:8081')
 var abi = [
 	{
 		"constant": false,
-		"inputs": [
-			{
-				"name": "_num",
-				"type": "uint256"
-			}
-		],
-		"name": "testEvent",
+		"inputs": [],
+		"name": "addGameAccountBalance",
 		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -22,17 +17,74 @@ var abi = [
 		"inputs": [
 			{
 				"indexed": false,
-				"name": "addr",
+				"name": "gameNo",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "bettor",
 				"type": "address"
 			},
 			{
 				"indexed": false,
-				"name": "a",
+				"name": "carNo",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "coinCount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "betDate",
 				"type": "uint256"
 			}
 		],
-		"name": "TestEvent",
+		"name": "betEvent",
 		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_carNo",
+				"type": "uint256"
+			}
+		],
+		"name": "det",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "lottery",
+		"outputs": [
+			{
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "startGame",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -42,12 +94,21 @@ var abi = [
 	},
 	{
 		"constant": true,
-		"inputs": [],
-		"name": "owner",
+		"inputs": [
+			{
+				"name": "_gameNo",
+				"type": "uint256"
+			},
+			{
+				"name": "_bettor",
+				"type": "address"
+			}
+		],
+		"name": "betInfoList",
 		"outputs": [
 			{
-				"name": "",
-				"type": "address"
+				"name": "o_betInfoList",
+				"type": "uint256[2][]"
 			}
 		],
 		"payable": false,
@@ -57,11 +118,189 @@ var abi = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "returnInt",
+		"name": "betOverSurplusSeconds",
+		"outputs": [
+			{
+				"name": "time",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "carGameRanking",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "page",
+				"type": "uint256"
+			},
+			{
+				"name": "pageSize",
+				"type": "uint256"
+			},
+			{
+				"name": "statisticsSenderOnly",
+				"type": "bool"
+			}
+		],
+		"name": "findWinningList",
+		"outputs": [
+			{
+				"name": "o_winningList",
+				"type": "uint256[8][]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_gameNo",
+				"type": "uint256"
+			}
+		],
+		"name": "gameInfoWinningDetail",
+		"outputs": [
+			{
+				"name": "o_winningDetail",
+				"type": "uint256[6][]"
+			},
+			{
+				"name": "o_addressList",
+				"type": "address[]"
+			},
+			{
+				"name": "o_totalBonus",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_gameNo",
+				"type": "uint256"
+			},
+			{
+				"name": "_bettorAddress",
+				"type": "address"
+			}
+		],
+		"name": "gameInfoWinningDetail",
+		"outputs": [
+			{
+				"name": "o_myWinningDetail",
+				"type": "uint256[6][3]"
+			},
+			{
+				"name": "o_totalBonus",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "gameNo",
 		"outputs": [
 			{
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "gameStatus",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_gameNo",
+				"type": "uint256"
+			}
+		],
+		"name": "getGameRanking",
+		"outputs": [
+			{
+				"name": "first",
+				"type": "uint256"
+			},
+			{
+				"name": "second",
+				"type": "uint256"
+			},
+			{
+				"name": "third",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_gameNo",
+				"type": "uint256"
+			}
+		],
+		"name": "lotteryResult",
+		"outputs": [
+			{
+				"name": "o_lotteryResult",
+				"type": "uint256[4][]"
 			}
 		],
 		"payable": false,
@@ -78,8 +317,10 @@ var myContract = new web3.eth.Contract(abi, '0xe4988fE323FE5e91940c7E59D73716438
 });
 
 // 合约上链函数及其传入参数编码
-var encode = myContract.methods.testEvent(100).encodeABI()
-console.log("encode:", encode)
+//var encode = myContract.methods.addGameAccountBalance.encodeABI()
+//var encode = myContract.methods.startGame().encodeABI()
+//var encode = myContract.methods.det(2).encodeABI()
+var encode = myContract.methods.lottery().encodeABI()
 
 // 签名数据组装
 var rawTx = {
