@@ -328,6 +328,7 @@ var rawTx = {
 	gasPrice: '0x5',										// gas单价
 	gasLimit: '0xa006c85beff',
 	to: '0xe4988fE323FE5e91940c7E59D737164387746DFE', 		// 合约地址
+	nonce:'0x1',
 	value: '0',												// 默认为0
 	gas:"0xa006c85beff",									// gas数量
 	data: encode 											// 调用函数的编码
@@ -368,25 +369,6 @@ web3.eth.accounts.signTransaction(rawTx, '0x39ae662fd20b510fcd9eeb6297eff65b2833
 	}
 });
 
-myContract.methods.returnInt().call({}, function(error, result){
-	if(!error){
-		console.log(" ******************************** returnInt *******************************************")
-		console.log("totalId:", result)
-	}
-	else {
-		console.log("error: ", error)
-	}
-})
-
-myContract.methods.owner().call({}, function(error, result){
-	if(!error){
-		console.log(" ******************************** owner *******************************************")
-		console.log("owner:", result)
-	}
-	else {
-		console.log("error: ", error)
-	}
-})
 
 
 

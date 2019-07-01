@@ -23,6 +23,7 @@ var rawTx = {
 	gasPrice: '0x5',										// gas单价
 	gasLimit: '0xa006c85beff',
 	to: null,												// 部署合约时需要填null
+	nonce:'0x0',
 	value: '0',												// 默认为0
 	gas:"0xa006c85beff",									// gas的数量
 	data: data1 											// 合约的二进制文件
