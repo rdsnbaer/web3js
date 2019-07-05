@@ -53,6 +53,7 @@ export GetSuccessPendingOrderMethod from './methods/account/GetSuccessPendingOrd
 export GetPendingOrderPoolForAddrMethod from './methods/account/GetPendingOrderPoolForAddrMethod';
 export GetTransactionCountMethod from './methods/account/GetTransactionCountMethod';
 export RequestAccountsMethod from './methods/account/RequestAccountsMethod';
+export GetSuccessPendingOrderForAddrMethod from './methods/account/GetSuccessPendingOrderForAddrMethod';
 
 // Block
 export AbstractGetBlockMethod from '../lib/methods/block/AbstractGetBlockMethod';

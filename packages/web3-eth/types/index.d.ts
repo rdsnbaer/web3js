@@ -102,6 +102,12 @@ export class Eth extends AbstractWeb3Module {
     getSuccessPendingOrderMethod(address: string, defaultBlock: string | number): Promise<string>;
     getSuccessPendingOrderMethod(address: string, callback?: (error: Error, balance: string) => void): Promise<string>;
     getSuccessPendingOrderMethod(address: string, defaultBlock: string | number, callback?: (error: Error, balance: string) => void): Promise<string>;
+	
+	getSuccessPendingOrderForAddr(address: string, address: string, address: string, address: string): Promise<string>;
+    getSuccessPendingOrderForAddr(address: string, address: string, address: string, address: string, defaultBlock: string | number): Promise<string>;
+    getSuccessPendingOrderForAddr(address: string, address: string, address: string, address: string, callback?: (error: Error, balance: string) => void): Promise<string>;
+    getSuccessPendingOrderForAddr(address: string, address: string, address: string, address: string,defaultBlock: string | number, callback?: (error: Error, balance: string) => void): Promise<string>;
+
 
     getStorageAt(address: string, position: number): Promise<string>;
     getStorageAt(address: string, position: number, defaultBlock: number | string): Promise<string>;
