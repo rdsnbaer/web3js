@@ -97,7 +97,18 @@ Documentation can be found at [read the docs][docs]
 * [Node.js](https://nodejs.org)
 * npm
 
-### Commands
+### Commands: method 1 
+```bash
+npm install express # install the module
+npm run build # runs rollup
+node webFile.js #  enabled instruction
+vim web3js/public/index.html # Contract deployment and invocation modification
+npm run clean # removes all the node_modules folders in all modules
+npm run dev # runs rollup with a watcher
+
+```
+
+### Commands: method 2
 ```bash
 npm install # install all dependencies for npm run bootstrap
 npm run bootstrap # install all dependencies and symlinks the internal modules for all modules
