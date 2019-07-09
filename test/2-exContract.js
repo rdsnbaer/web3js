@@ -311,7 +311,7 @@ var abi = [
 
 var contractAddr = '0xe4988fE323FE5e91940c7E59D737164387746DFE';
 var fromAddr = 'e523e7c59a0725afd08bc9751c89eed6f8e16dec';
-var fromAddrPrivate = '0x39ae662fd20b510fcd9eeb6297eff65b2833ef59a5b2400dd247eafb6cdde02d''
+var fromAddrPrivate = '0x39ae662fd20b510fcd9eeb6297eff65b2833ef59a5b2400dd247eafb6cdde02d';
 
 // 合约实例化 传入合约abi，及合约地址
 var myContract = new web3.eth.Contract(abi, contractAddr, {
