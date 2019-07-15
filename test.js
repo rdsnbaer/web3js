@@ -1,10 +1,10 @@
-var Web3 = require('web3')
-var web3 = new Web3('http://127.0.0.1:6666')
+var Web3 = require('web3');
+var web3 = new Web3('http://127.0.0.1:6666');
 // var web3 = new Web3('http://39.104.206.147:8081')
 
 
 
-console.log(web3.version)
+console.log(web3.version);
 ////////////////////////////////////////////////// 获取区块高度 /////////////////////////////////////////////
 
 // web3.eth.getBlockNumber(function (error, result) {
@@ -80,19 +80,19 @@ web3.eth.accounts.signTransaction(rawTx, '0x39ae662fd20b510fcd9eeb6297eff65b2833
 		// web3.eth.sendRawTransaction
 		return web3.eth.sendRawTransaction(result.rawTransaction, function(error, result){
 			if (!error) {
-				console.log("sendSignedTransaction: " + result)
-				sleep(2000)
+				console.log("sendSignedTransaction: " + result);
+				sleep(2000);
 				web3.eth.getTransactionReceipt(result).then(function(result){
-					console.log("getTransactionReceipt: " + result)
-					console.log(result)
+					console.log("getTransactionReceipt: " + result);
+					console.log(result);
 					if(result.status == true){
 						var contract_address = result.contractAddress;
 						//调用合约
-						console.log("调用合约......")
+						console.log("调用合约......");
 
 					}
 					else{
-						console.log("get contract error.")
+						console.log("get contract error.");
 					}
 
 				});
@@ -117,10 +117,10 @@ var myContract = new web3.eth.Contract(abi, '0xE5CA31aa2E2E4f52bC160Fc046E2A389B
 
 
 myContract.methods.say().call({}, function(error, result){
-	console.log("call")
+	console.log("call");
 	if(!error){
 		// console.log(error)
-		console.log(result)
+		console.log(result);
 	}
 	
 })
