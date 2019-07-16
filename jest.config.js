@@ -1,3 +1,4 @@
+/* jshint esversion:6 */
 // TODO: Improve tests and add the branch property to the coverageThreshold config.
 const config = {
     // notifyMode: 'success-change',

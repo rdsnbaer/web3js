@@ -1,3 +1,4 @@
+/* jshint esversion:6 */
 import babel from 'rollup-plugin-babel';
 import json from 'rollup-plugin-json';
 import autoExternal from 'rollup-plugin-auto-external';
