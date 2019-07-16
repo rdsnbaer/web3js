@@ -1,5 +1,5 @@
 var Web3 = require('web3')
-var RLP = require('./node_modules/web3-eth/node_modules/rlp')
+var RLP = require('../node_modules/web3-eth/node_modules/rlp')
 var web3 = new Web3('http://127.0.0.1:8081')
 
 
