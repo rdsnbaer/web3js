@@ -112,7 +112,7 @@ cp ../dist/web3.cjs.js ./
 mv web3.cjs.js index.js
 cd ../../../
 
-node node_modules/.bin/gulp	#Running gulp
+node node_modules/.bin/gulp	#Running gulp   It takes a few minutes to pack.
 
 node webFile.js #  enabled instruction
 vim web3js/public/index.html # Contract deployment and invocation modification
