@@ -97,7 +97,31 @@ Documentation can be found at [read the docs][docs]
 * [Node.js](https://nodejs.org)
 * npm
 
-### Commands: method 1 
+### Commands: method 1  
+```bash
+npm install gulp -g 		# lobal Installation
+npm install express			#install the module
+npm run bootstrap			#install dependencies
+npm run build
+npm install del browserify gulp-jshint jshint gulp-uglify gulp-babel gulp-rename vinyl-source-stream exorcist bower gulp-streamify gulp-replace babel-preset-env
+npm install gulp -D 		#Local installation of gulp as a development dependency
+
+Modify and move files:
+cd web3js/packages/web3/src
+cp ../dist/web3.cjs.js ./
+mv web3.cjs.js index.js
+cd ../../../
+
+node node_modules/.bin/gulp	#Running gulp
+
+node webFile.js #  enabled instruction
+vim web3js/public/index.html # Contract deployment and invocation modification
+npm run clean # removes all the node_modules folders in all modules
+npm run dev # runs rollup with a watcher
+
+```
+
+### Commands: method 2 
 ```bash
 npm install express # install the module
 npm run build # runs rollup
@@ -108,7 +132,7 @@ npm run dev # runs rollup with a watcher
 
 ```
 
-### Commands: method 2
+### Commands: method 3
 ```bash
 npm install # install all dependencies for npm run bootstrap
 npm run bootstrap # install all dependencies and symlinks the internal modules for all modules
