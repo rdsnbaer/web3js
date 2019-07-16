@@ -35,7 +35,7 @@ const config = {
  */
 module.exports = (moduleNameMapper) => {
     if (moduleNameMapper) {
-        config['moduleNameMapper'] = moduleNameMapper;
+        config[`moduleNameMapper`] = moduleNameMapper;
 
         return config;
     }
